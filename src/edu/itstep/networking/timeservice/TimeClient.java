@@ -22,7 +22,7 @@ public class TimeClient {
          InputStream is = null;
          OutputStream out = null;
   
-        try(Socket socket = new Socket("172.201.131.199", 123)){
+        try(Socket socket = new Socket("127.0.0.1", 123)){
             is = socket.getInputStream();
             out = socket.getOutputStream();
             BufferedReader br = new BufferedReader(new InputStreamReader(is));

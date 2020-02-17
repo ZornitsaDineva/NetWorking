@@ -28,7 +28,7 @@ public class TimeServer {
         manage.start();//start the thread
         try (ServerSocket ss = new ServerSocket()) {
 
-            ss.bind(new InetSocketAddress("172.201.131.199", PORT_NUMBER));
+            ss.bind(new InetSocketAddress("127.0.0.1", PORT_NUMBER));
             while(true){
                 Socket socket = ss.accept();//listening state
                 InputStream is = socket.getInputStream();//read by client
