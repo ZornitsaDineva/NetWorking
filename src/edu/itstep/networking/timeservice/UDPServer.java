@@ -22,7 +22,7 @@ public class UDPServer {
         byte[] buffer = new byte[256];
         try (DatagramSocket socket = new DatagramSocket(124)) {
             DatagramPacket request = new DatagramPacket(buffer, buffer.length);
-            System.out.println("waiting for a client...");
+            System.out.println("waiting for a UDP client...");
             socket.receive(request);//accept in tcp
             InetAddress clientAddress = request.getAddress();
             int clientPort = request.getPort();
@@ -30,7 +30,7 @@ public class UDPServer {
             buffer = data.getBytes();
             DatagramPacket response = new DatagramPacket(buffer, buffer.length, clientAddress, clientPort);
             socket.send(response);
-            System.out.println("server closed");
+            System.out.println("UDP server closed");
         } catch (SocketException se) {
             se.printStackTrace();
         } catch (IOException io) {

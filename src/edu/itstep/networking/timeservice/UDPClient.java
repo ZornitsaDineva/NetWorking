@@ -26,17 +26,17 @@ public class UDPClient {
             byte[] buffer = new byte[512];
 
             DatagramPacket request = new DatagramPacket(buffer, buffer.length, address, port);
-            System.out.println("request sent");
+            System.out.println("UDP request sent");
             socket.send(request);
 
             DatagramPacket response = new DatagramPacket(buffer, buffer.length);
-            System.out.println("waiting response from server");
+            System.out.println("waiting response from UDP server");
             socket.receive(response);
 
             String quote = new String(buffer, 0, response.getLength());
             
-            System.out.println("Client received: " + quote);
-            System.out.println("client closed");
+            System.out.println("UDP client received: " + quote);
+            System.out.println("UDP client closed");
         } catch (IOException io) {
             io.printStackTrace();
         }
